@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Detail Tiket</h2>
+    <h3>{{ ticket.title }}</h3>
+    <p>{{ ticket.description }}</p>
+    <p>Prioritas: {{ ticket.priority }}</p>
+    <p>Status: {{ ticket.status }}</p>
+    <!-- tambahkan atribut lainnya sesuai kebutuhan -->
+    <a href="{% url 'forward_ticket' %}">forward</a>
+    <br>
+    {% if link %}
+        <a href="{{ link }}" class="btn btn-primary">Tautan ke Halaman</a>
+    {% endif %}
+
+
+    <br>
+    <a href="{% url 'view_ticket_list' %}">Kembali ke Daftar Tiket</a>
+{% endblock content %}

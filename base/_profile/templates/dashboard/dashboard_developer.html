@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>DEVELOPER</h1>
+
+
+
+<a href="{% url 'status_diteruskan' %}">status_diteruskan</a>
+<br>
+<a href="{% url 'status_selesai' %}">status_selesai</a>
+<br>
+<br>
+<a href="{% url 'logout' %}">Keluar</a>
+{% endblock %}

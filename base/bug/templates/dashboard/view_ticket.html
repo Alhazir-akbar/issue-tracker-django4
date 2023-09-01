@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Daftar Tiket</h2>
+<ul>
+  {% for ticket in tickets %}
+  <li>
+   <h3> <a href="{% url 'view_ticket_detail' ticket.id %}">{{ ticket.title }} '   <<<'{{ ticket.status }}</a></h3>
+    
+    <br>
+  
+  </li>
+  {% empty %}
+  <li>Tidak ada tiket yang tersedia.</li>
+  {% endfor %}
+</ul>
+
+
+
+
+<a href="{% url 'dashboard' %}">Kembali ke Dashboard</a>
+{% endblock content %}

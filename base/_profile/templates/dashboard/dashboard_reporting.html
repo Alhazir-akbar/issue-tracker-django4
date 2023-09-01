@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>REPORTING</h1>
+
+
+<a href="{% url 'create_ticket' %}">Buat Laporan Baru</a>
+<br>
+<a href="{% url 'view_ticket_list' %}">Lihat Semua List Status Ticket</a>
+<br>
+<a href="{% url 'status_selesai' %}">status selesai</a>
+<br>
+
+
+
+
+
+
+<br>
+<a href="{% url 'logout' %}">Keluar</a>
+{% endblock %}

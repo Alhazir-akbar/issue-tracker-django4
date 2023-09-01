@@ -1,0 +1,15 @@
+<!-- view_developer_ticket.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Detail Tiket</h2>
+<h3>{{ ticket.title }}</h3>
+<p><strong>Deskripsi:</strong> {{ ticket.description }}</p>
+<p><strong>Prioritas:</strong> {{ ticket.priority }}</p>
+<p><strong>Status:</strong> {{ ticket.status }}</p>
+<p><strong>Reporter:</strong> {{ ticket.reporting_user }}</p>
+<p><strong>Dibuat pada:</strong> {{ ticket.created_at }}</p>
+
+<!-- Tambahkan bagian lain yang diperlukan, seperti komentar atau tindakan lainnya -->
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>SUPPORT</h1>
+
+
+
+<br>
+<a href="{% url 'status_proses' %}">Laporan Baru Dari Reporting</a>
+<br>
+<a href="{% url 'status_kembalikan' %}">status_kembalikan</a>
+<br>
+<a href="{% url 'view_ticket_list' %}">Lihat Semua List Status Ticket</a>
+<br>
+<a href="{% url 'status_selesai' %}">status selesai</a>
+<br>
+<a href="{% url 'logout' %}">Keluar</a>
+{% endblock %}
