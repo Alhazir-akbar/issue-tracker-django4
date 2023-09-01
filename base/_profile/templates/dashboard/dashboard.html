@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+    {% if role == 'reporting' %}
+        <h2>ANDA LOGIN SEBAGAI REPORTING</h2>
+
+
+        <a href="{% url 'create_ticket' %}">Buat Laporan</a><br>
+        <a href="">Lihat List Laporan</a><br>
+    {% elif role == 'support'%}
+        <h1>SUPPORT</h1>
+    {% elif role == 'developer'%}
+        <h1>SUPPORT</h1>
+    {% else %}
+        <h1>Anda Siapa?</h1>
+    {% endif %}
+    
+{% endblock content %}
+    

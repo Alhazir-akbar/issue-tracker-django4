@@ -4,7 +4,7 @@
 <h2>Masuk</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form.as_table }}
     <button type="submit">Masuk</button>
 </form>
 <p>Tidak punya akun? <a href="{% url 'register' %}">Daftar di sini</a></p>

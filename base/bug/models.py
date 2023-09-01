@@ -20,7 +20,6 @@ class Ticket(models.Model):
         # Tambahkan status lain sesuai kebutuhan
     ]
     status = models.CharField(max_length=55, choices=STATUS_CHOICES, default='Proses')
-    position = models.CharField(max_length=20, blank=True, null=True)
     attachment = models.ForeignKey('Attachment', on_delete=models.CASCADE, blank=True, null=True, related_name='ticket_attachments')  
     reporter = models.CharField(max_length=255, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)

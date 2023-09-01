@@ -9,5 +9,6 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2', 'role']
+        fields = ['username', 'first_name','password1', 'password2', 'role','groups']
+        # fields = '__all__'
 

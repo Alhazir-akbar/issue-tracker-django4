@@ -21,9 +21,9 @@ def create_ticket(request):
                 ticket.support_user = support_user  
             ticket.save()
             
-            # for file in request.FILES.getlist('attachment'):
-            #     Attachment.objects.create(id_ticket=ticket, file=file)
-            return redirect('dashboard')  
+            for file in request.FILES.getlist('attachment'):
+                Attachment.objects.create(id_ticket=ticket, file=file)
+            return redirect('view_ticket_list')  
     else:
         ticket_form = TicketForm()
     return render(request, 'dashboard/create_ticket.html', {'ticket_form': ticket_form})
