@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Detail Tiket</h2>
-<h3>{{ ticket.title }}</h3>
-<p>{{ ticket.description }}</p>
-<p>asdasdasadsada</p>
-<p>Prioritas: {{ ticket.priority }}</p>
-<p>Status: {{ ticket.status }}</p>
-<a href="{% url 'edit_ticket' ticket.id %}">Edit</a>
-<!-- tambahkan atribut lainnya sesuai kebutuhan -->
-<a href="{% url 'forward_ticket' %}">forward</a>
-<br>
 
-<h3>{{ title }}</h3>
-{% if link %}
-    <a href="{{ link }}" class="btn btn-primary">MENERUSKAN DARI DEVELOPER KE SUPPORT</a>
-    <br>
-{% elif linkked %}
-    <a href="{{ linkked }}" class="btn btn-primary">SUPPORT KE DEVELOPER</a>
+  
+<h2>Detail Laporan</h2>
+<table>
+  <tr>
+    <th>Judul Laporan:</th>
+    <td>{{ ticket.title }}</td>
+  </tr>
+  <tr>
+    <th>Deskripsi:</th>
+    <td>{{ ticket.description }}</td>
+  </tr>
+  <tr>
+    <th>Prioritas:</th>
+    <td>{{ ticket.priority }}</td>
+  </tr>
+  <tr>
+    <th>Status:</th>
+    <td>{{ ticket.status }}</td>
+  </tr>
+</table>
 
-{% else %}
-    <a href="{{ liasdasnkked }}" class="btn btn-primary">asd</a>
-{% endif %}
 
-<br>
-<!-- <a href="{% url 'view_ticket_list' %}">Kembali ke Daftar Tiket</a> -->
+
 {% endblock content %}
 

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Meneruskan Tisadsaket</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Meneruskasdsadan</button>
+</form>
+<a href="{% url 'dashboard' %}" class="btn btn-secondary">Kembsadsaali</a>
+{% endblock content %}

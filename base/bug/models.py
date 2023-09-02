@@ -13,11 +13,11 @@ class Ticket(models.Model):
     priority = models.CharField(max_length=20, choices=PRIORITY_CHOICES, default='Medium')
     reporting_user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Pelapor")
     STATUS_CHOICES = [
-        ('Proses', 'Proses'),
-        ('Diteruskan ke Pengembang', 'Diteruskan ke Pengembang'),
-        ('Selesai', 'Selesai'),
-        ('Kembalikan ke Support', 'Kembalikan Ke Support'),
-        # Tambahkan status lain sesuai kebutuhan
+        ('Proses', 'Terkirim Ke Support'), #Dari reporting ke support
+        ('ToDeveloper', 'Tiket Dari Support'), # Dari Support ke devloper
+        ('Selesai', 'Selesai'), # dari Developer ke reporting
+        ('ToSupport', 'Tiket Dari Developer'), #dari developer ke support
+
     ]
     status = models.CharField(max_length=55, choices=STATUS_CHOICES, default='Proses')
     attachment = models.ForeignKey('Attachment', on_delete=models.CASCADE, blank=True, null=True, related_name='ticket_attachments')  

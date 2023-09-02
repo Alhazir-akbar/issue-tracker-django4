@@ -1,17 +1,32 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h2>Daftar Tiket</h2>
-<ul>
-  {% for ticket in tiket_proses %}
-  <li>
-    <a href="{% url 'view_ticket_detail' ticket.id %}">{{ ticket.title }}</a>
-    <br>
-  </li>
-  {% empty %}
-  <li>Tidak ada tiket yang tersedia.</li>
-  {% endfor %}
-</ul>
 
-<a href="{% url 'dashboard' %}">Kembali ke Dashboard</a>
+
+
+{% block content %}
+<h2>List Tiket Masuk</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Judul Tiket</th>
+      <th>Status</th>
+      <th>Aksi</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ticket in tiket_proses %}
+    <tr>
+      <td><h3><a href="{% url 'view_ticket_detail' ticket.id %}">{{ ticket.title }}</a></h3></td>
+      <td>{{ ticket.status }}</td>
+      <td><a href="{% url 'selsaikan_tiket' ticket.id %}">Selsaikan</td>
+      <td><a href="{% url 'kirim_tiket_developer' ticket.id %}">Kirimkan Ke Developer</td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="2">Tidak ada tiket yang tersedia.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock content %}

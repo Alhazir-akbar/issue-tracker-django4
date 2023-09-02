@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     '_profile',
     'bug',
     'django_extensions',
-    'widget_tweaks',
+
 ]
 
 MIDDLEWARE = [

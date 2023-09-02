@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>Buat Tiket Baru</h2>
+  <h2>Edit Laporan</h2>
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ ticket_form.as_p }}
-    <button type="submit">Buat Tiket</button>
+    <button type="submit">Simpat Perubahan</button>
   </form>
-  <a href="{% url 'dashboard' %}">Kembali ke Dashboard</a>
+
 
 
 {% endblock %}

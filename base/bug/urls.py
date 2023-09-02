@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import create_ticket,  dispotition_ticket, edit_ticket, forward_ticket, status_diteruskan, status_kembalikan, status_proses, status_selesai,view_ticket_detail,  view_ticket_list
+from .views import create_ticket,  dispotition_ticket, edit_ticket, forward_ticket, kirim_tiket_developer, kirim_ulang_tiket, selsaikan_tiket, solved_ticket, status_diteruskan, status_kembalikan, status_proses, status_selesai,view_ticket_detail,  view_ticket_list
 
 urlpatterns = [
     path('create_ticket/', create_ticket, name='create_ticket'),
@@ -11,7 +11,11 @@ urlpatterns = [
     
     path('forward_ticket/', forward_ticket, name='forward_ticket'),
     path('dispotition_ticket/', dispotition_ticket, name='dispotition_ticket'),
-    
+    path('solved_ticket/', solved_ticket, name='solved_ticket'),
+    path('kirim-ulang-tiket/<int:ticket_id>/', kirim_ulang_tiket, name='kirim_ulang_tiket'),
+    path('selsaikan_tiket/<int:ticket_id>/', selsaikan_tiket, name='selsaikan_tiket'),
+    path('kirim_tiket_developer/<int:ticket_id>/', kirim_tiket_developer, name='kirim_tiket_developer'),
+
     
     path('view_tickets/', view_ticket_list, name='view_ticket_list'),
     path('view_ticket/<int:ticket_id>/', view_ticket_detail, name='view_ticket_detail'),

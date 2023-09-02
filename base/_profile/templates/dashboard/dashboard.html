@@ -6,14 +6,34 @@
 
     {% if role == 'reporting' %}
         <h2>ANDA LOGIN SEBAGAI REPORTING</h2>
-
-
         <a href="{% url 'create_ticket' %}">Buat Laporan</a><br>
-        <a href="">Lihat List Laporan</a><br>
+
+        <a href="{% url 'view_ticket_list' %}">Lihat List Laporan</a>
+
+
+
     {% elif role == 'support'%}
         <h1>SUPPORT</h1>
+        <br>
+        <a href="{% url 'status_proses' %}">Laporan Baru Dari Reporting</a>
+        <br>
+        <a href="{% url 'status_kembalikan' %}">status_kembalikan</a>
+        <br>
+        <a href="{% url 'view_ticket_list' %}">Lihat Semua List Status Ticket</a>
+        <br>
+        <a href="{% url 'status_selesai' %}">status selesai</a>
+        <br>
+        <a href="{% url 'logout' %}">Keluar</a>
+
+
+
+
     {% elif role == 'developer'%}
-        <h1>SUPPORT</h1>
+        <h1>DEVELOPER</h1>
+        <a href="{% url 'status_diteruskan' %}">Tiket Masuk</a>
+
+
+
     {% else %}
         <h1>Anda Siapa?</h1>
     {% endif %}

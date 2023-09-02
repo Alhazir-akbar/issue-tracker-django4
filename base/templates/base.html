@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Sebagai {{role}}</title>
 </head>
+<style>
+    table {
+      width: 30%;
+    }
+  
+    th {
+      text-align: left;
+    }
+  
+    td {
+      text-align: left;
+    }
+    table {
+        width: 80%;
+        border-collapse: collapse; 
+      }
+  
+      th, td {
+        border: 1px solid black;  
+        padding: 8px;  
+        text-align: left;
+      }
+  </style>
 <body>
 
 
     
     {% block content %}
-        
-    {% endblock content %}
-    
+
+   
+      {% endblock content %}
     <br> <br> <br> <br> 
     {% if user.is_authenticated %}
     <p><strong><a href="{% url 'dashboard' %}">Home</a></strong></p>
@@ -22,3 +46,4 @@
 
 </body>
 </html>
+
