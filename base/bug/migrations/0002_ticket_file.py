@@ -7,13 +7,13 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('bug', '0001_initial'),
-        ('_profile', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='userprofile',
-            name='supported_reports',
-            field=models.ManyToManyField(blank=True, related_name='supporters', to='bug.ticket', verbose_name='Laporan yang didukung'),
+            model_name='ticket',
+            name='file',
+            field=models.FileField(default=1, upload_to='attachments/'),
+            preserve_default=False,
         ),
     ]

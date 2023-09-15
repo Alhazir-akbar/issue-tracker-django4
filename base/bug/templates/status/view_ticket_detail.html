@@ -18,12 +18,29 @@
     <td>{{ ticket.priority }}</td>
   </tr>
   <tr>
+  <tr>
+    <th>Time:</th>
+    <td>{{ ticket.created_at }}</td>
+  </tr>
+  <tr>
     <th>Status:</th>
     <td>{{ ticket.status }}</td>
   </tr>
+  <tr>
+    <th>File</th>
+    <td>
+    {% if ticket.file %}
+        <a href="{{ ticket.file.url }}" target="_blank">Download File</a>
+    {% else %}
+        Tidak ada file yang diunggah
+    {% endif %}
+  </td>
+  </tr>
 </table>
-
-
+<br>
+<a href="{% url 'dashboard' %}">
+  <button type="button">kembali Ke Dashboard</button>
+</a>
 
 {% endblock content %}
 

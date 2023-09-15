@@ -5,9 +5,9 @@
 <table border="1">
   <thead>
     <tr>
-      <th>Judul Tiket</th>
+      <th>Lihat Detail Laporan</th>
       <th>Status</th>
-      <th>Aksi</th>
+
     </tr>
   </thead>
   <tbody>
@@ -15,7 +15,7 @@
     <tr>
       <td><h3><a href="{% url 'view_ticket_detail' ticket.id %}">{{ ticket.title }}</a></h3></td>
       <td>{{ ticket.status }}</td>
-      <td><a href="{% url 'edit_ticket' ticket.id %}">Edit</a></td>
+      <!-- <td><a href="{% url 'edit_ticket' ticket.id %}">Edit</a></td> -->
     </tr>
     {% empty %}
     <tr>

@@ -20,8 +20,8 @@ class RegisterView(CreateView):
 @login_required
 def dashboard(request):
     user_profile = request.user.userprofile
-    role = user_profile.role
     
+    role = user_profile.role
     template_name = 'dashboard/dashboard.html'
  
     return render(request, template_name, {'role':role})

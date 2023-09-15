@@ -1,10 +1,8 @@
-from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Ticket, Attachment, Comment
-from .forms import DispopotionTicketForm, EditTicketForm, ForwardTicketForm, KirimTiketDeveloper, SolvedTicketForm, TicketForm, CommentForm
+from .models import Ticket
+from .forms import DispopotionTicketForm, EditTicketForm, ForwardTicketForm, KirimTiketDeveloper, SolvedTicketForm, TicketForm
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail
 from django.contrib import messages
 
 @login_required
@@ -23,11 +21,14 @@ def create_ticket(request):
             ticket.save()
             
             for file in request.FILES.getlist('attachment'):
-                Attachment.objects.create(id_ticket=ticket, file=file)
+                Ticket.objects.create(id_ticket=ticket, file=file)
             return redirect('view_ticket_list')  
     else:
         ticket_form = TicketForm()
     return render(request, 'dashboard/create_ticket.html', {'ticket_form': ticket_form})
+
+
+
 
 def view_ticket_list(request):
     tickets = Ticket.objects.all() 
@@ -140,7 +141,7 @@ def selsaikan_tiket(request, ticket_id):
     except Ticket.DoesNotExist:
         messages.error(request, 'Tiket dengan ID tersebut tidak ditemukan.')
     
-    return redirect('status_kembalikan')  # Ganti 'status_kembalikan' dengan nama URL halaman tiket yang dikembalikan.
+    return redirect('status_kembalikan')  
 
 @login_required
 def kirim_ulang_tiket(request, ticket_id):
@@ -152,7 +153,7 @@ def kirim_ulang_tiket(request, ticket_id):
     except Ticket.DoesNotExist:
         messages.error(request, 'Tiket dengan ID tersebut tidak ditemukan.')
     
-    return redirect('status_kembalikan')  # Ganti 'status_kembalikan' dengan nama URL halaman tiket yang dikembalikan.
+    return redirect('status_kembalikan')  
 
 def kirim_tiket_developer(request, ticket_id):
     if request.method == 'POST':
@@ -173,17 +174,3 @@ def kirim_tiket_developer(request, ticket_id):
         return render(request, 'flow/forward_ticket.html', {'form': form})
 
 
-# def kirim_tiket_developer(request, ticket_id):
-#     if request.method == 'POST':
-#         form = ForwardTicketForm(request.POST)
-#         if form.is_valid():
-#             selected_ticket = Ticket.objects.get(id=ticket_id)
-#             selected_ticket.status = "Developer"
-#             selected_developer = form.cleaned_data['developer']
-#             selected_ticket.developer = selected_developer
-#             selected_ticket.save()
-     
-#             return redirect('dashboard')
-#     else:
-#         form = ForwardTicketForm()
-#     return render(request, 'flow/forward_ticket.html', {'form': form})

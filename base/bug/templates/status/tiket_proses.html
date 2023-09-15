@@ -4,13 +4,12 @@
 
 
 {% block content %}
-<h2>List Tiket Masuk</h2>
+<h2>List Tiket Baru Dari Reporting</h2>
 <table border="1">
   <thead>
     <tr>
-      <th>Judul Tiket</th>
+      <th>Detal Tiket</th>
       <th>Status</th>
-      <th>Aksi</th>
       <th>Aksi</th>
     </tr>
   </thead>
@@ -19,8 +18,8 @@
     <tr>
       <td><h3><a href="{% url 'view_ticket_detail' ticket.id %}">{{ ticket.title }}</a></h3></td>
       <td>{{ ticket.status }}</td>
-      <td><a href="{% url 'selsaikan_tiket' ticket.id %}">Selsaikan</td>
-      <td><a href="{% url 'kirim_tiket_developer' ticket.id %}">Kirimkan Ke Developer</td>
+      <td><a href="{% url 'selsaikan_tiket' ticket.id %}">Selsaikan <br>
+      <a href="{% url 'kirim_tiket_developer' ticket.id %}">Kirimkan Ke Developer</td>
     </tr>
     {% empty %}
     <tr>
@@ -29,4 +28,7 @@
     {% endfor %}
   </tbody>
 </table>
+
+<br><br>
+<a href="{% url 'dashboard' %}"><button type="button">Kembali Ke dashboard</button></a>
 {% endblock content %}

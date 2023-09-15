@@ -1,16 +1,16 @@
 from django import forms
-from .models import Ticket, Comment, Attachment, User
-from django.contrib.auth.models import Group
+from .models import Ticket, Comment, User
 
 class TicketForm(forms.ModelForm):
     class Meta:
         model = Ticket
-        fields = ['title', 'description', 'priority']
+        fields = ['title', 'description', 'priority', 'file']
        
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['message']
+        fields = ['text']
+
             
 class EditTicketForm(forms.ModelForm):
     class Meta:

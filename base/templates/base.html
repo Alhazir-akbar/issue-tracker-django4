@@ -38,11 +38,6 @@
    
       {% endblock content %}
     <br> <br> <br> <br> 
-    {% if user.is_authenticated %}
-    <p><strong><a href="{% url 'dashboard' %}">Home</a></strong></p>
-    <p><strong><a href="{% url 'logout' %}">Logout</a></strong></p>
-    <p> Sebagai: <strong>{{ role }}</strong></p>
-    {% endif %}
 
 </body>
 </html>

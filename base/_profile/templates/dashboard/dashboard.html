@@ -11,19 +11,21 @@
         <a href="{% url 'view_ticket_list' %}">Lihat List Laporan</a>
 
 
+        <br>
+        <br>
+        <a href="{% url 'logout' %}"><button type="button">Logout</button></a>
 
     {% elif role == 'support'%}
         <h1>SUPPORT</h1>
         <br>
         <a href="{% url 'status_proses' %}">Laporan Baru Dari Reporting</a>
         <br>
-        <a href="{% url 'status_kembalikan' %}">status_kembalikan</a>
+        <a href="{% url 'status_kembalikan' %}">List Tiket Dari Developer</a>
         <br>
-        <a href="{% url 'view_ticket_list' %}">Lihat Semua List Status Ticket</a>
         <br>
-        <a href="{% url 'status_selesai' %}">status selesai</a>
-        <br>
-        <a href="{% url 'logout' %}">Keluar</a>
+        <a href="{% url 'status_selesai' %}">Status Tiket Selsai</a>
+        <br><br>
+        <a href="{% url 'logout' %}"><button type="button">Logout</button></a>
 
 
 
